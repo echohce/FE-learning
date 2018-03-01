@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图像拖拽</title>
+    <style>
+        #div1,
+        #div2 {
+            float: left;
+            width: 200px;
+            height: 66px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="./assets/eg_dragdrop_w3school.gif" alt="" draggable="true" ondragstart="drag(event)" id="img1">
+    </div>
+
+    <div id="div2" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <script>
+        function allowDrop(event) {
+            event.preventDefault()
+        }
+
+       
+        function drag(event){
+            event.dataTransfer.setData('Text', event.target.id)
+            console.log('--drag--' + event.target.id)
+        }
+        
+        function drop(event){
+            event.preventDefault();
+            var data = event.dataTransfer.getData('Text');
+            console.log('drop ' + data);
+            event.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Framework</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+                a:1,
+                isButtonDisabled:true,
+            },
+            beforeCreate: function(){
+                console.log(`Before: a is: ` + this.a)
+            },
+            created: function(){
+                console.log(`Created: a is: ` + this.a)
+            },
+        })
+    </script>
+</body>
+</html>

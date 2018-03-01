@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+    <style>
+        canvas {
+            border: 1px solid #222;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="200" height="300" style="border: 1px solid #222;">
+
+    </canvas>
+    <br>
+    <canvas id="canvas2" width="300" height="300"></canvas>
+    <br>
+    <canvas id="canvas3" width="300" height="300"></canvas>
+    <br>
+    <canvas id="canvas4" width="300" height="300"></canvas>
+    <br>
+    <canvas id="canvas5" width="300" height="300"></canvas>
+    <br>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#FF0000';
+        ctx.fillRect(0, 0, 150, 75);
+
+
+        (function a() {
+            var canvas = document.getElementById('canvas2')
+            var ctx = canvas.getContext('2d')
+            ctx.moveTo(10, 10)
+            ctx.lineTo(150, 50)
+            ctx.lineTo(10, 50)
+            ctx.stroke()
+        })();
+
+        (function b() {
+            var canvas = document.getElementById('canvas3')
+            var ctx = canvas.getContext('2d')
+            ctx.fillStyle = '#ff0000';
+            ctx.beginPath()
+            ctx.arc(70, 18, 15, 0, Math.PI * 2, true)
+            ctx.closePath();
+            ctx.fill()
+        })();
+
+        (function c() {
+            var canvas = document.getElementById('canvas4')
+            var ctx = canvas.getContext('2d')
+            var grd = ctx.createLinearGradient(0, 0, 175, 50)
+            grd.addColorStop(0, '#FF0000')
+            grd.addColorStop(1, '#00FF00')
+            ctx.fillStyle = grd;
+            ctx.fillRect(3, 4, 175, 59)
+        })();
+
+        (function d() {
+    
+            var c = document.getElementById("canvas5");
+            var cxt = c.getContext("2d");
+            var img = new Image()
+            img.src = "http://www.w3school.com.cn/i/ct_html5_canvas_image.gif"
+            cxt.drawImage(img, 0, 0);
+            console.log('img')
+            // ?
+        })();
+    </script>
+</body>
+
+</html>
